@@ -59,6 +59,7 @@ that use the GreenIsland library.
 
 %build
 # >> build pre
+cd upstream
 # << build pre
 
 %cmake .  \
