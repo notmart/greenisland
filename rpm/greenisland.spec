@@ -36,7 +36,6 @@ BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  cmake
 BuildRequires:  python
 BuildRequires:  qt5-plugin-platform-eglfs
-BuildRequires:  qt5-plugin-platform-kms
 
 %description
 GreenIsland is a support library to make QML compositors for Wayland.

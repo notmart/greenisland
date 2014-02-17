@@ -30,7 +30,6 @@ PkgBR:
     - cmake
     - python
     - qt5-plugin-platform-eglfs
-    - qt5-plugin-platform-kms
 
 Requires:
     - qt5-plugin-imageformat-jpeg
