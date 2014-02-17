@@ -8,91 +8,62 @@ Name:       greenisland
 # >> macros
 # << macros
 
-Summary:    greenisland package
+Summary:    The GreenIsland library
 Version:    0.2.0.1.20140101.f1e96b8
 Release:    1
 Group:      Applications/System
 License:    BSD
 Source0:    greenisland-%{version}.tar.bz2
 Source100:  greenisland.yaml
-Patch0:     greenisland-nogit.patch
-Requires:   wallpapers
-Requires:   hawaii-icon-themes
 Requires:   qt5-plugin-imageformat-jpeg
+Requires:   qt5-plugin-imageformat-gif
+Requires:   qt5-plugin-imageformat-ico
+Requires:   qt5-qtsvg-plugin-imageformat-svg
 Requires:   qt5-qtdeclarative-import-qtquick2plugin
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(Qt5Core)
-BuildRequires:  pkgconfig(Qt5Xml)
 BuildRequires:  pkgconfig(Qt5Gui)
-BuildRequires:  pkgconfig(Qt5DBus)
-BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5OpenGL)
-BuildRequires:  pkgconfig(Qt5Designer)
-BuildRequires:  qtaccountsservice-devel
-BuildRequires:  pkgconfig(polkit-qt-1)
+BuildRequires:  pkgconfig(Qt5Compositor)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  cmake
 BuildRequires:  python
-BuildRequires:  bzip2-devel
-BuildRequires:  kde-extra-cmake-modules
-BuildRequires:  kde-solid-devel
-#BuildRequires:  vibe-devel
-BuildRequires:  qt5-qtwayland-wayland_egl-devel
 BuildRequires:  qt5-plugin-platform-eglfs
 BuildRequires:  qt5-plugin-platform-kms
-BuildRequires:  qt5-plugin-platform-minimal
-BuildRequires:  qt5-plugin-platform-minimalegl
-BuildRequires:  qt5-plugin-platform-linuxfb
-BuildRequires:  qt5-plugin-platform-offscreen
-BuildRequires:  qt5-plugin-platform-xcb
-BuildRequires:  qt5-plugin-imageformat-jpeg
-BuildRequires:  qt5-plugin-imageformat-gif
-BuildRequires:  qt5-plugin-imageformat-ico
-BuildRequires:  qt5-qtsvg-plugin-imageformat-svg
-BuildRequires:  qt5-plugin-bearer-nm
-BuildRequires:  qt5-plugin-bearer-connman
-BuildRequires:  qt5-plugin-bearer-generic
 
 %description
-A package of greenisland functions
+GreenIsland is a support library to make QML compositors for Wayland.
+
 
 %package devel
-Summary:    Devel files for Greenisland
+Summary:    Development files for GreenIsland
 Group:      Development/System
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
-Devel for fluid
+This package contains the files necessary to develop applications |
+that use the GreenIsland library.
+
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name}-%{version}
 
-# greenisland-nogit.patch
-#%patch0 -p1
 # >> setup
 # << setup
 
 %build
 # >> build pre
 # << build pre
-%ifnarch %{ix86} x86_64
-# HACK!!! Please remove when possible.
-# cmake is accelerated but version is too old
-mkdir /tmp/bin
-cp -a /usr/bin/cmake /usr/share/cmake/Modules /usr/share/cmake/Templates /tmp/bin/
-PATH=/tmp/bin:$PATH
-/tmp/bin/cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_LIBDIR:PATH=/usr/lib -DINCLUDE_INSTALL_DIR:PATH=/usr/include -DLIB_INSTALL_DIR:PATH=/usr/lib -DSYSCONF_INSTALL_DIR:PATH=/etc -DSHARE_INSTALL_PREFIX:PATH=/usr/share -DCMAKE_SKIP_RPATH:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON . -DCMAKE_BUILD_TYPE=RelWithDebInfo
-%else
+
 %cmake .  \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo
-%endif
 
 make %{?jobs:-j%jobs}
 
@@ -114,10 +85,9 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
+%{_bindir}/greenisland
 %{_libdir}/libGreenIsland.so.*
-%{_libdir}/hawaii/qml/GreenIsland/libgreenislandplugin.so
-%{_libdir}/hawaii/qml/GreenIsland/qmldir
-%{_libdir}/hawaii/qml/GreenIsland/*.qml
+%{_libdir}/hawaii/qml/GreenIsland/*
 # >> files
 # << files
 

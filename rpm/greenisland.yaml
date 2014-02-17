@@ -3,12 +3,11 @@ Version    : 0.2.0.1.20140101.f1e96b8
 Release    : 1
 Group      : Applications/System
 License    : BSD
-Summary    : greenisland package
-Description: A package of greenisland functions
+Summary    : The GreenIsland library
+Description: |
+  GreenIsland is a support library to make QML compositors for Wayland.
 Sources    : 
     - greenisland-%{version}.tar.bz2
-Patches:
-    - greenisland-nogit.patch
 
 Configure  : cmake 
 ConfigOptions: 
@@ -17,49 +16,41 @@ ConfigOptions:
 PkgConfigBR:
     - liblzma
     - Qt5Core
-    - Qt5Xml
     - Qt5Gui
-    - Qt5DBus
-    - Qt5Widgets
     - Qt5Svg
     - Qt5Qml
     - Qt5Quick
     - Qt5OpenGL
-    - Qt5Designer
-    - Qt0AccountsService
-    - polkit-qt-1
+    - Qt5Compositor
     - wayland-client
     - wayland-cursor
     - wayland-server
 
-
 PkgBR:
     - cmake
     - python
-    - bzip2-devel
-    - kde-extra-cmake-modules
-    - kde-solid-devel
-    - vibe-devel
-    - qt5-qtwayland-wayland_egl-devel
+    - qt5-plugin-platform-eglfs
+    - qt5-plugin-platform-kms
 
 Requires:
-    - wallpapers
-    - hawaii-icon-themes
-#    - hawaii-widget-styles
     - qt5-plugin-imageformat-jpeg
+    - qt5-plugin-imageformat-gif
+    - qt5-plugin-imageformat-ico
+    - qt5-qtsvg-plugin-imageformat-svg
     - qt5-qtdeclarative-import-qtquick2plugin
-
-
 
 Files:  
     - "%{_bindir}/greenisland"
-    - "%{_libdir}/libGreenIsland.so.0.1.90"
+    - "%{_libdir}/libGreenIsland.so.*"
+    - "%{_libdir}/hawaii/qml/GreenIsland/*"
 
 SubPackages:
     - Name: devel
-      Summary: Devel files for greenisland
+      Summary: Development files for GreenIsland
       Group: Development/System
-      Description: Devel for greenisland
+      Description: |
+        This package contains the files necessary to develop applications |
+        that use the GreenIsland library.
       Files:
          - "%{_includedir}/GreenIsland/*"
          - "%{_libdir}/cmake/GreenIsland/*"
