@@ -1,0 +1,66 @@
+Name       : greenisland
+Version    : 0.2.0.1.20140101.f1e96b8
+Release    : 1
+Group      : Applications/System
+License    : BSD
+Summary    : greenisland package
+Description: A package of greenisland functions
+Sources    : 
+    - greenisland-%{version}.tar.bz2
+Patches:
+    - greenisland-nogit.patch
+
+Configure  : cmake 
+ConfigOptions: 
+    - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+
+PkgConfigBR:
+    - liblzma
+    - Qt5Core
+    - Qt5Xml
+    - Qt5Gui
+    - Qt5DBus
+    - Qt5Widgets
+    - Qt5Svg
+    - Qt5Qml
+    - Qt5Quick
+    - Qt5OpenGL
+    - Qt5Designer
+    - Qt0AccountsService
+    - polkit-qt-1
+    - wayland-client
+    - wayland-cursor
+    - wayland-server
+
+
+PkgBR:
+    - cmake
+    - python
+    - bzip2-devel
+    - kde-extra-cmake-modules
+    - kde-solid-devel
+    - vibe-devel
+    - qt5-qtwayland-wayland_egl-devel
+
+Requires:
+    - wallpapers
+    - hawaii-icon-themes
+#    - hawaii-widget-styles
+    - qt5-plugin-imageformat-jpeg
+    - qt5-qtdeclarative-import-qtquick2plugin
+
+
+
+Files:  
+    - "%{_bindir}/greenisland"
+    - "%{_libdir}/libGreenIsland.so.0.1.90"
+
+SubPackages:
+    - Name: devel
+      Summary: Devel files for greenisland
+      Group: Development/System
+      Description: Devel for greenisland
+      Files:
+         - "%{_includedir}/GreenIsland/*"
+         - "%{_libdir}/cmake/GreenIsland/*"
+         - "%{_libdir}/libGreenIsland.so"
