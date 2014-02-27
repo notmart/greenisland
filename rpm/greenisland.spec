@@ -73,6 +73,7 @@ make %{?jobs:-j%jobs}
 %install
 rm -rf %{buildroot}
 # >> install pre
+cd upstream
 # << install pre
 %make_install
 
