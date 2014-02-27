@@ -86,7 +86,6 @@ cd upstream
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}/greenisland
 %{_libdir}/libGreenIsland.so.*
 %{_libdir}/hawaii/qml/GreenIsland/*
 # >> files

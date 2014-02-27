@@ -39,7 +39,6 @@ Requires:
     - qt5-qtdeclarative-import-qtquick2plugin
 
 Files:  
-    - "%{_bindir}/greenisland"
     - "%{_libdir}/libGreenIsland.so.*"
     - "%{_libdir}/hawaii/qml/GreenIsland/*"
 
