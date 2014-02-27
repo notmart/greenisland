@@ -30,7 +30,6 @@ PkgConfigBR:
 PkgBR:
     - cmake
     - python
-    - qt5-qtwayland-wayland egl-devel
 
 Requires:
     - qt5-plugin-imageformat-jpeg
