@@ -1,13 +1,15 @@
 Name       : greenisland
 Version    : 0.2.90
 Release    : 1
-Group      : Applications/System
-License    : BSD
+Group      : System/Libraries
+License    : LGPLv2.1+
+URL        : https://github.com/mauios/greenisland.git
 Summary    : The GreenIsland library
 Description: |
   GreenIsland is a support library to make QML compositors for Wayland.
 Sources    : 
-    - greenisland-%{version}.tar.bz2
+    - greenisland-%{version}.tar.xz
+SetupOptions: -q -n %{name}-%{version}/upstream
 
 Configure  : cmake 
 ConfigOptions: 
@@ -38,7 +40,8 @@ Requires:
     - qt5-qtsvg-plugin-imageformat-svg
     - qt5-qtdeclarative-import-qtquick2plugin
 
-Files:  
+Files:
+    - "%doc AUTHORS LICENSE.LGPL README.md"
     - "%{_libdir}/libGreenIsland.so.*"
     - "%{_libdir}/hawaii/qml/GreenIsland/*"
 

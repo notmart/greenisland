@@ -11,9 +11,10 @@ Name:       greenisland
 Summary:    The GreenIsland library
 Version:    0.2.90
 Release:    1
-Group:      Applications/System
-License:    BSD
-Source0:    greenisland-%{version}.tar.bz2
+Group:      System/Libraries
+License:    LGPLv2.1+
+URL:        https://github.com/mauios/greenisland.git
+Source0:    greenisland-%{version}.tar.xz
 Source100:  greenisland.yaml
 Requires:   qt5-plugin-imageformat-jpeg
 Requires:   qt5-plugin-imageformat-gif
@@ -52,14 +53,13 @@ that use the GreenIsland library.
 
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{version}/upstream
 
 # >> setup
 # << setup
 
 %build
 # >> build pre
-cd upstream
 # << build pre
 
 %cmake .  \
@@ -73,7 +73,6 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 # >> install pre
-cd upstream
 # << install pre
 %make_install
 
@@ -86,6 +85,7 @@ cd upstream
 
 %files
 %defattr(-,root,root,-)
+%doc AUTHORS LICENSE.LGPL README.md
 %{_libdir}/libGreenIsland.so.*
 %{_libdir}/hawaii/qml/GreenIsland/*
 # >> files
