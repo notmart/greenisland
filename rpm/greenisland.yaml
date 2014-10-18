@@ -18,6 +18,7 @@ PkgBR:
     - kf5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
+    - libkscreen-devel
 PkgConfigBR:
     - Qt5Core
     - Qt5DBus

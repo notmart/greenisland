@@ -35,6 +35,7 @@ BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  extra-cmake-modules
 BuildRequires:  qt5-tools
+BuildRequires:  libkscreen-devel
 
 %description
 GreenIsland is a support library to make QML compositors for Wayland.
