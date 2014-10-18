@@ -9,21 +9,18 @@ Name:       greenisland
 # << macros
 
 Summary:    The GreenIsland library
-Version:    0.2.90
+Version:    0.5.90+git0
 Release:    1
 Group:      System/Libraries
-License:    LGPLv2.1+
+License:    GPLv2+, LGPLv2.1+
 URL:        https://github.com/mauios/greenisland.git
-Source0:    greenisland-%{version}.tar.xz
+Source0:    %{name}-%{version}.tar.xz
 Source100:  greenisland.yaml
 Requires:   qt5-plugin-imageformat-jpeg
 Requires:   qt5-plugin-imageformat-gif
 Requires:   qt5-plugin-imageformat-ico
 Requires:   qt5-qtsvg-plugin-imageformat-svg
 Requires:   qt5-qtdeclarative-import-qtquick2plugin
-Requires(post): /sbin/ldconfig
-Requires(postun): /sbin/ldconfig
-BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Gui)
@@ -35,21 +32,12 @@ BuildRequires:  pkgconfig(Qt5Compositor)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-server)
-BuildRequires:  cmake
-BuildRequires:  python
+BuildRequires:  kf5-rpm-macros
+BuildRequires:  extra-cmake-modules
+BuildRequires:  qt5-tools
 
 %description
 GreenIsland is a support library to make QML compositors for Wayland.
-
-
-%package devel
-Summary:    Development files for GreenIsland
-Group:      Development/System
-Requires:   %{name} = %{version}-%{release}
-
-%description devel
-This package contains the files necessary to develop applications |
-that use the GreenIsland library.
 
 
 %prep
@@ -60,12 +48,10 @@ that use the GreenIsland library.
 
 %build
 # >> build pre
+%kf5_make
 # << build pre
 
-%cmake .  \
-    -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
-make %{?_smp_mflags}
 
 # >> build post
 # << build post
@@ -73,28 +59,15 @@ make %{?_smp_mflags}
 %install
 rm -rf %{buildroot}
 # >> install pre
+%kf5_make_install
 # << install pre
-%make_install
 
 # >> install post
 # << install post
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
-
 %files
 %defattr(-,root,root,-)
 %doc AUTHORS LICENSE.LGPL README.md
-%{_libdir}/libGreenIsland.so.*
-%{_libdir}/hawaii/qml/GreenIsland/*
+%{_bindir}/*
 # >> files
 # << files
-
-%files devel
-%defattr(-,root,root,-)
-%{_includedir}/GreenIsland/*
-%{_libdir}/cmake/GreenIsland/*
-%{_libdir}/libGreenIsland.so
-# >> files devel
-# << files devel

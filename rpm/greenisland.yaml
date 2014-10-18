@@ -1,22 +1,24 @@
 Name       : greenisland
-Version    : 0.2.90
+Version    : 0.5.90+git0
 Release    : 1
 Group      : System/Libraries
-License    : LGPLv2.1+
+License    : GPLv2+, LGPLv2.1+
 URL        : https://github.com/mauios/greenisland.git
 Summary    : The GreenIsland library
 Description: |
   GreenIsland is a support library to make QML compositors for Wayland.
 Sources    : 
-    - greenisland-%{version}.tar.xz
+    - "%{name}-%{version}.tar.xz"
 SetupOptions: -q -n %{name}-%{version}/upstream
 
-Configure  : cmake 
-ConfigOptions: 
-    - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+Configure: none
+Builder: none
 
+PkgBR:
+    - kf5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
 PkgConfigBR:
-    - liblzma
     - Qt5Core
     - Qt5DBus
     - Qt5Gui
@@ -29,10 +31,6 @@ PkgConfigBR:
     - wayland-cursor
     - wayland-server
 
-PkgBR:
-    - cmake
-    - python
-
 Requires:
     - qt5-plugin-imageformat-jpeg
     - qt5-plugin-imageformat-gif
@@ -42,17 +40,18 @@ Requires:
 
 Files:
     - "%doc AUTHORS LICENSE.LGPL README.md"
-    - "%{_libdir}/libGreenIsland.so.*"
-    - "%{_libdir}/hawaii/qml/GreenIsland/*"
+    - "%{_bindir}/*"
+#    - "%{_libdir}/libGreenIsland.so.*"
+#    - "%{_libdir}/hawaii/qml/GreenIsland/*"
 
-SubPackages:
-    - Name: devel
-      Summary: Development files for GreenIsland
-      Group: Development/System
-      Description: |
-        This package contains the files necessary to develop applications |
-        that use the GreenIsland library.
-      Files:
-         - "%{_includedir}/GreenIsland/*"
-         - "%{_libdir}/cmake/GreenIsland/*"
-         - "%{_libdir}/libGreenIsland.so"
+#SubPackages:
+#    - Name: devel
+#      Summary: Development files for GreenIsland
+#      Group: Development/System
+#      Description: |
+#        This package contains the files necessary to develop applications
+#        that use the GreenIsland library.
+#      Files:
+#         - "%{_includedir}/GreenIsland/*"
+#         - "%{_libdir}/cmake/GreenIsland/*"
+#         - "%{_libdir}/libGreenIsland.so"
