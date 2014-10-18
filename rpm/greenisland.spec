@@ -50,6 +50,7 @@ GreenIsland is a support library to make QML compositors for Wayland.
 
 %build
 # >> build pre
+export PATH=%{_qt5_bindir}:$PATH
 %kf5_make
 # << build pre
 
