@@ -32,6 +32,8 @@ PkgConfigBR:
     - Qt5Quick
     - Qt5OpenGL
     - Qt5Compositor
+    - Qt5Xml
+    - Qt5Test
     - wayland-client
     - wayland-cursor
     - wayland-server
