@@ -38,6 +38,9 @@ BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  kf5-rpm-macros
 BuildRequires:  extra-cmake-modules
 BuildRequires:  qt5-tools
+BuildRequires:  ki18n-devel
+BuildRequires:  kservice-devel
+BuildRequires:  plasma-devel
 BuildRequires:  libkscreen-devel
 
 %description
@@ -75,5 +78,6 @@ rm -rf %{buildroot}
 %doc AUTHORS LICENSE.LGPL README.md
 %{_bindir}/*
 %{_prefix}/%{_lib}/qt5/qml/GreenIsland/*
+%{_kf5_plugindir}/*
 # >> files
 # << files

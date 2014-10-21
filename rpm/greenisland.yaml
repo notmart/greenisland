@@ -18,6 +18,10 @@ PkgBR:
     - kf5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
+    - ki18n-devel
+    - kservice-devel
+    - plasma-devel
+#    - kpackage-devel
     - libkscreen-devel
 PkgConfigBR:
     - Qt5Core
@@ -47,6 +51,7 @@ Files:
     - "%{_bindir}/*"
 #    - "%{_libdir}/libGreenIsland.so.*"
     - "%{_prefix}/%{_lib}/qt5/qml/GreenIsland/*"
+    - "%{_kf5_plugindir}/*"
 
 #SubPackages:
 #    - Name: devel
