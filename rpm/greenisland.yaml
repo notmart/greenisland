@@ -32,6 +32,7 @@ PkgConfigBR:
     - wayland-cursor
     - wayland-server
     - wayland-egl
+    - xkbcommon
 
 Requires:
     - qt5-plugin-imageformat-jpeg
