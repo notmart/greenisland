@@ -45,7 +45,7 @@ Files:
     - "%doc AUTHORS LICENSE.LGPL README.md"
     - "%{_bindir}/*"
 #    - "%{_libdir}/libGreenIsland.so.*"
-#    - "%{_libdir}/hawaii/qml/GreenIsland/*"
+    - "%{_prefix}/%{_lib}/qt5/qml/GreenIsland/*"
 
 #SubPackages:
 #    - Name: devel

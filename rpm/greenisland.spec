@@ -73,5 +73,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %doc AUTHORS LICENSE.LGPL README.md
 %{_bindir}/*
+%{_prefix}/%{_lib}/qt5/qml/GreenIsland/*
 # >> files
 # << files
