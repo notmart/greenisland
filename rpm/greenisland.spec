@@ -21,6 +21,7 @@ Requires:   qt5-plugin-imageformat-gif
 Requires:   qt5-plugin-imageformat-ico
 Requires:   qt5-qtsvg-plugin-imageformat-svg
 Requires:   qt5-qtdeclarative-import-qtquick2plugin
+Requires:   xkeyboard-config
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Gui)
