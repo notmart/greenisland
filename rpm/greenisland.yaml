@@ -21,7 +21,7 @@ PkgBR:
     - ki18n-devel
     - kservice-devel
     - plasma-devel
-#    - kpackage-devel
+    - kpackage-devel
     - libkscreen-devel
 PkgConfigBR:
     - Qt5Core

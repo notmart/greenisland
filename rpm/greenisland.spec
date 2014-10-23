@@ -43,6 +43,7 @@ BuildRequires:  qt5-tools
 BuildRequires:  ki18n-devel
 BuildRequires:  kservice-devel
 BuildRequires:  plasma-devel
+BuildRequires:  kpackage-devel
 BuildRequires:  libkscreen-devel
 
 %description
