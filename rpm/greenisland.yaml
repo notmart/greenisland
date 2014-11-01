@@ -39,6 +39,7 @@ PkgConfigBR:
     - wayland-server
     - wayland-egl
     - xkbcommon
+    - systemd
 
 Requires:
     - qt5-plugin-imageformat-jpeg
