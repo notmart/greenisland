@@ -1,5 +1,5 @@
 diff --git a/src/compositor/compositor.cpp b/src/compositor/compositor.cpp
-index dea25ca..924decd 100644
+index dea25ca..80379ba 100644
 --- a/src/compositor/compositor.cpp
 +++ b/src/compositor/compositor.cpp
 @@ -157,6 +157,8 @@ Compositor::Compositor(const QString &socket)
@@ -7,7 +7,7 @@ index dea25ca..924decd 100644
      , d_ptr(new CompositorPrivate(this))
  {
 +    //TODO: setting actually the correct orientation
-+    setScreenOrientation(Qt::PortraitOrientation);
++    QWaylandQuickCompositor::setScreenOrientation(Qt::PortraitOrientation);
      qRegisterMetaType<QuickSurface *>("QuickSurface*");
      qRegisterMetaType<Output *>("Output*");
      qRegisterMetaType<WindowView *>("WindowView*");
