@@ -16,6 +16,7 @@ License:    GPLv2+, LGPLv2.1+
 URL:        https://github.com/mauios/greenisland.git
 Source0:    %{name}-%{version}.tar.xz
 Source100:  greenisland.yaml
+Patch0:     vertical-screen.patch
 Requires:   qt5-plugin-imageformat-jpeg
 Requires:   qt5-plugin-imageformat-gif
 Requires:   qt5-plugin-imageformat-ico
@@ -53,6 +54,7 @@ GreenIsland is a support library to make QML compositors for Wayland.
 
 %prep
 %setup -q -n %{name}-%{version}/upstream
+%patch0 -p1
 
 # >> setup
 # << setup
